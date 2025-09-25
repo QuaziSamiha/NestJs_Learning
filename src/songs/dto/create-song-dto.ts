@@ -1,19 +1,26 @@
-// import { isArray, isDateString, isMilitaryTime, IsNotEmpty, IsString } from "class-validator";
+import {
+  IsArray,
+  IsDateString,
+  IsMilitaryTime,
+  IsNotEmpty,
+  IsString,
+} from 'class-validator';
 
-// export class CreateSongDto {
-//   @IsString()
-//   @IsNotEmpty()
-//   readonly title;
+export class CreateSongDto {
+  @IsString()
+  @IsNotEmpty()
+  readonly title: string;
 
-//   @IsNotEmpty()
-//   @isArray()
-//   @IsString({ each: true })
-//   readonly artists;
+  @IsNotEmpty()
+  @IsArray()
+  @IsString({ each: true })
+  readonly artists: string[];
 
-//   @isDateString()
-//   @IsNotEmpty()
-//   readonly releasedDate: Date;
-//   @isMilitaryTime()
-//   @IsNotEmpty()
-//   readonly duration: Date;
-// }
+  @IsDateString()
+  @IsNotEmpty()
+  readonly releasedDate: string; // must be string, not Date
+
+  @IsMilitaryTime()
+  @IsNotEmpty()
+  readonly duration: string;
+}
